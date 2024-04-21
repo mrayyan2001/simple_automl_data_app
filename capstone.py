@@ -8,8 +8,7 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
-from sklearn.metrics import accuracy_score, r2_score
-from scipy import stats
+from sklearn.metrics import r2_score
 import streamlit as st
 
 
