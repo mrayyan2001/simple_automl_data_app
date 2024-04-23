@@ -120,13 +120,16 @@ elif st.session_state["step_number"] == 4:  # step 4 model training
         st.session_state["is_classification"] = type in [object, bool]
     # if st.session_state["dataset"][y]
 elif st.session_state["step_number"] == 5:  # result
-    st.write(st.session_state["x"])
-    st.write(st.session_state["y"])
-    st.write(st.session_state["is_classification"])
-    model_train(
-        st.session_state["encoded_dataset"],
-        st.session_state["is_classification"],
-        st.session_state["x"],
-        st.session_state["y"],
-    )
+    # st.write(st.session_state["x"])
+    # st.write(st.session_state["y"])
+    # st.write(st.session_state["is_classification"])
+    try:
+        model_train(
+            st.session_state["encoded_dataset"],
+            st.session_state["is_classification"],
+            st.session_state["x"],
+            st.session_state["y"],
+        )
+    except:
+        pass
     pass
