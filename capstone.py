@@ -95,7 +95,7 @@ def clean_data(df: pd.DataFrame):
 
     # fill missing values
     mean_imputer = SimpleImputer(missing_values=np.nan, strategy="mean")
-    mode_imputer = SimpleImputer(missing_values=None, strategy="most_frequent")
+    mode_imputer = SimpleImputer(missing_values=np.nan, strategy="most_frequent")
 
     numeric_columns = df.select_dtypes(np.number).columns.values
     non_numeric_columns = df.columns.drop(numeric_columns).values
@@ -103,15 +103,10 @@ def clean_data(df: pd.DataFrame):
         df[i] = mean_imputer.fit_transform(df[i].values.reshape(-1, 1))
 
     # convert bool to 0,1
-    # df.replace({True: "1", False: "0"}, inplace=True)
+    df.replace({True: "1", False: "0"}, inplace=True)
 
     for i in non_numeric_columns:
-        if df[i].dtype == bool:
-            df[i] = df[i].fillna(df[i].describe()["top"])
-            pass
-        else:
-            df[i] = mode_imputer.fit_transform(df[i].values.reshape(-1, 1)).reshape(-1)
-        # df[i] = df[i].fillna(stats.mode(df[i]))
+        df[i] = mode_imputer.fit_transform(df[i].values.reshape(-1, 1)).reshape(-1)
 
     return df
 

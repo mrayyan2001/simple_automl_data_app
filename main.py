@@ -64,11 +64,11 @@ elif st.session_state["step_number"] == 2:  # step 2 EDA and handle missing valu
 
     x = st.selectbox(
         "x",
-        options=st.session_state["dataset"].select_dtypes(np.number).columns,
+        options=st.session_state["cleaned_dataset"].select_dtypes(np.number).columns,
     )
     y = st.selectbox(
         "y",
-        options=st.session_state["dataset"].select_dtypes(np.number).columns,
+        options=st.session_state["cleaned_dataset"].select_dtypes(np.number).columns,
     )
     st.scatter_chart(data=st.session_state["cleaned_dataset"], x=x, y=y)
 
