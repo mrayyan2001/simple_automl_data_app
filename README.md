@@ -1,3 +1,5 @@
+Creating a general machine learning package similar to PyCaret, incorporating automated EDA, model selection, and training using AutoML. A Streamlit web app will also be developed for users to upload data, select target variables, and choose models interactively.
+
 # Capstone Project
 [Website Link](https://capstone-m.streamlit.app/)
 
